@@ -1,6 +1,6 @@
 <?php
 include('includes/connection.php');
-include('includes/header.php');
+include('includes/headerUser.php');
 ?>
 <!-- start carousel slider-->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -275,5 +275,4 @@ if (isset($_SESSION['register'])) {
                               <!--End tabs -->
                     </div>
                     <?php
-                    include 'includes/footer.php';
-                    ?>
+                    include 'includes/footer.php'; ?>

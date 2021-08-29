@@ -7,10 +7,6 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css" />
           <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css" />
-          <!-- <link rel="stylesheet" href="css/fonts/Roboto-Bold.ttf">
-          <link rel="stylesheet" href="css/fonts/Roboto-Medium.ttf">
-          <link rel="stylesheet" href="css/fonts/Roboto-Light.ttf">
-          <link rel="stylesheet" href="css/fonts/Roboto-Thin.ttf"> -->
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
           <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
           <link rel="stylesheet" href="assets/vendor/slick-carousel/slick/slick.css">
@@ -27,10 +23,10 @@
                     <!-- lv2 -->
                     <div class="top hidden-sm hidden-xs">
                               <!-- lv3 -->
-                              <div class="container text-right my-2" style="margin: 0 75%; ">
+                              <div class="container text-right" style="margin: 0 75%; ">
                                         <!--CHUYỂN NGÔN NGỮ LV4-->
-                                        <button type="button" class="btn btn-outline-danger rounded-pill "><a href="login.php">Đăng nhập</a> </button>
-                                        <button type="button" class="btn btn-outline-danger rounded-pill "><a href="register.php">Đăng ký</a> </button>
+                                        <button type="button" class="btn btn-outline-danger rounded-pill "><a href="./admin/logout.php">Đăng xuất</a> </button> <!-- <button type=" btn-outline-danger"><a href="./admin/logout.php" class="text-dark " style="text-decoration: none;">Logout</a></button> -->
+
                                         <!--SEARCH TRANG-->
                                         <div class="search">
                                                   <div class="ct" id="search">
@@ -64,7 +60,7 @@
                                                                                 <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                                                                                           <ul class="navbar-nav" style="padding:2%">
                                                                                                     <li class="nav-item">
-                                                                                                              <a href="index.php" class="nav-link">TRANG CHỦ</a>
+                                                                                                              <a href="homeUser.php" class="nav-link">TRANG CHỦ</a>
                                                                                                     </li>
                                                                                                     <li class="nav-item">
                                                                                                               <a href="" class="nav-link">CÔNG TY</a>
