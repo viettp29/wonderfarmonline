@@ -190,7 +190,7 @@ if (isset($_GET['id'])) {
                     /// CHeck whether the image is uploaded or not
                     if ($upload == false) {
                         //FAiled to Upload
-                        $_SESSION['upload'] = "<div class='error'>Không tải lên được hình ảnh mới.</div>";
+                        $_SESSION['upload'] = "<div class='error text text-center'>Không tải lên được hình ảnh mới.</div>";
                         //REdirect to Manage drink 
                         header('location: manage-drink.php');
                         //Stop the Process
@@ -208,7 +208,7 @@ if (isset($_GET['id'])) {
                         //Check whether the image is removed or not
                         if ($remove == false) {
                             //failed to remove current image
-                            $_SESSION['remove-failed'] = "<div class='error'>Xoá hình ảnh hiện tại không thành công.</div>";
+                            $_SESSION['remove-failed'] = "<div class='error text text-center'>Xoá hình ảnh hiện tại không thành công.</div>";
                             //redirect to manage drink
                             header('location: manage-drink.php');
                             //stop the process
@@ -241,11 +241,11 @@ if (isset($_GET['id'])) {
             //CHeck whether the query is executed or not 
             if ($res3 == true) {
                 //Query Exectued and drink Updated
-                $_SESSION['update'] = "<div class='success'>Đồ uống được cập nhập thành công.</div>";
+                $_SESSION['update'] = "<div class='success text text-center'>Đồ uống được cập nhập thành công.</div>";
                 header('location: manage-drink.php');
             } else {
                 //Failed to Update drink
-                $_SESSION['update'] = "<div class='error'>Không cập nhật được đồ uống.</div>";
+                $_SESSION['update'] = "<div class='error text text-center'>Không cập nhật được đồ uống.</div>";
                 header('location: manage-drink.php');
             }
         }

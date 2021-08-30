@@ -119,7 +119,7 @@ li {
   margin-right: auto; /* 1 */
   margin-left: auto; /* 1 */
 
-  max-width: 960px; /* 2 */
+  width: 90%; /* 2 */
 
   padding-right: 10px; /* 3 */
   padding-left: 10px; /* 3 */
@@ -759,4 +759,161 @@ body {
 .social:hover {
   background-color: #0d6efd;
   border-color: #0d6efd;
+}
+/*-------------------------------menu order, drink ------------------------------------*/
+
+.btn-danger {
+  background-color: #f32fa1;
+  padding: 1%;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.btn-danger:hover {
+  background-color: #d30d4f;
+}
+
+.success {
+  color: #2ed573;
+}
+.error {
+  color: #ff4757;
+}
+
+/* CSS for Menu */
+/* CSS for main-content */
+.main-content {
+  background-color: #f1f2f6;
+  padding: 2%;
+}
+
+.col-4 {
+  width: 18%;
+  background-color: #ff4757;
+  margin: 1%;
+  padding: 2%;
+  float: left;
+}
+/*--------------------------------------menu drink -----------------------------------------------------*/
+/* CSS for Food Menu */
+.food-menu {
+  background-color: #ececec;
+  padding: 4% 0;
+}
+.food-menu-box {
+  width: 43%;
+  margin: 1%;
+  padding: 2%;
+  float: left;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.food-menu-img {
+  width: 20%;
+  float: left;
+}
+
+.food-menu-desc {
+  width: 70%;
+  float: left;
+  margin-left: 8%;
+}
+
+.food-price {
+  font-size: 1.2rem;
+  margin: 2% 0;
+}
+.food-detail {
+  font-size: 1rem;
+  color: #747d8c;
+}
+h2 {
+  color: #2f3542;
+  font-size: 2rem;
+  margin-bottom: 2%;
+}
+/* CSS for Food SEarch Section */
+
+.food-search {
+  background-image: url(../images/icewebsite.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 7% 0;
+}
+
+.food-search input[type="search"] {
+  width: 50%;
+  padding: 1%;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+/* CSS for Categories */
+.categories {
+  padding: 4% 0;
+}
+
+.box-3 {
+  width: 28%;
+  float: left;
+  margin: 2%;
+}
+.box-3 {
+  width: 100%;
+  margin: 4% auto;
+}
+.float-container {
+  position: relative;
+}
+.img-responsive {
+  width: 100%;
+}
+.img-curve {
+  border-radius: 15px;
+}
+.product-menu-desc {
+  width: 70%;
+  float: left;
+  margin-left: 1%;
+}
+
+.product-menu-img {
+  width: 20%;
+}
+/* css cho orders */
+.order {
+  width: 50%;
+  margin: 0 auto;
+}
+.input-responsive {
+  width: 96%;
+  padding: 1%;
+  margin-bottom: 3%;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.order-label {
+  margin: 3%;
+  margin-bottom: 1%;
+  font-weight: bold;
+  border-color: #333;
+}
+/*  ----------------------------my order--------------------------------- */
+.tbl-full {
+  width: 100%;
+}
+
+.main-content {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3% 0;
+}
+.wrapper {
+  padding: 1%;
+  width: 80%;
+  margin: 0 auto;
 }

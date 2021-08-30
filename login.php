@@ -1,5 +1,11 @@
 <?php
-require_once("includes/connection.php");
+ob_start();
+include('includes/connection.php');
+if (isset($_SESSION['user_id']) == false) {
+          include('includes/header.php');
+} else {
+          include('includes/headerUser.php');
+}
 ?>
 <?php
 //Gọi file connection.php
@@ -31,10 +37,10 @@ if (isset($_POST["btn_submit"])) {
                                         $_SESSION["user_name"] = $data["username"];
                                         $_SESSION["role_User"] = $data["role"];
                                         if ($_SESSION["role_User"] == 0) {
-                                                  $_SESSION["success"] = "<div class='success'>Bạn đã đăng nhập thành công.</div>";
+                                                  $_SESSION["success"] = "<div class='success text text-center'>Bạn đã đăng nhập thành công.</div>";
                                                   header('Location: homeUser.php');
                                         } else {
-                                                  $_SESSION["success"] = "<div class='success'>Bạn đã đăng nhập thành công.</div>";
+                                                  $_SESSION["success"] = "<div class='success text text-center'>Bạn đã đăng nhập thành công.</div>";
                                                   header('Location: admin/index.php');
                                         }
                               } else {
@@ -44,7 +50,7 @@ if (isset($_POST["btn_submit"])) {
           }
 }
 ?>
-<?php include("includes/header.php");
+
 ?>
 <div class="container mt-5 mb-5">
           <div class="row d-flex align-items-center justify-content-center">
@@ -67,4 +73,6 @@ if (isset($_POST["btn_submit"])) {
                     </div>
           </div>
 </div>
-<?php include("includes/footer.php");
+<?php include 'includes/footer.php';
+ob_end_flush();
+?>

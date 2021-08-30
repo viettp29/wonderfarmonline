@@ -21,11 +21,11 @@ include('includesAdmin/header.php');
         <table class="tbl-full">
             <tr>
                 <th>STT</th>
-                <th>Đồ uống</th>
-                <th>Giá</th>
+                <th>Drink</th>
+                <th>Price</th>
                 <th>Số lượng</th>
-                <th>Tổng tiền</th>
-                <th>Ngày đặt</th>
+                <th>Total</th>
+                <th class="text-center">Ngày đặt</th>
                 <th>Trạng thái</th>
                 <th>Tên khách</th>
                 <th>Số ĐT</th>
@@ -97,7 +97,7 @@ include('includesAdmin/header.php');
                 }
             } else {
                 //Order not Available
-                echo "<tr><td colspan='12' class='error'>Chưa có đơn đặt hàng</td></tr>";
+                echo "<tr><td colspan='12' class='error text text-center'>Chưa có đơn đặt hàng</td></tr>";
             }
             ?>
 

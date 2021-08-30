@@ -26,7 +26,7 @@ if (isset($_GET['id']) && isset($_GET['imageName'])) //Either use '&&' or 'AND'
         //Check whether the image is removed or not
         if ($remove == false) {
             //Failed to Remove image
-            $_SESSION['upload'] = "<div class='error'>Xoá ảnh không thành công.</div>";
+            $_SESSION['upload'] = "<div class='error text text-center'>Xoá ảnh không thành công.</div>";
             //REdirect to Manage drink
             header('location: ' . SITEURL . 'admin/manage-drink.php');
             //Stop the Process of Deleting drink
@@ -43,16 +43,16 @@ if (isset($_GET['id']) && isset($_GET['imageName'])) //Either use '&&' or 'AND'
     //4. Redirect to Manage drink with Session Message
     if ($res == true) {
         //drink Deleted
-        $_SESSION['delete'] = "<div class='success'>Xoá đồ uống thành công.</div>";
+        $_SESSION['delete'] = "<div class='success text text-center'>Xoá đồ uống thành công.</div>";
         header('location: ' . SITEURL . 'admin/manage-drink.php');
     } else {
         //Failed to Delete drink
-        $_SESSION['delete'] = "<div class='error'>Xoá đồ uống thất bại.</div>";
+        $_SESSION['delete'] = "<div class='error text text-center'>Xoá đồ uống thất bại.</div>";
         header('location: ' . SITEURL . 'admin/manage-drink.php');
     }
 } else {
     //Redirect to Manage drink Page
     //echo "REdirect";
-    $_SESSION['unauthorize'] = "<div class='error'>Không có quyền truy cập.</div>";
+    $_SESSION['unauthorize'] = "<div class='error text text-center'>Không có quyền truy cập.</div>";
     header('location: ' . SITEURL . 'admin/manage-drink.php');
 }

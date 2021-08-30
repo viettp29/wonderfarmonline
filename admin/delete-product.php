@@ -20,7 +20,7 @@ if (isset($_GET['id']) and isset($_GET['imageName'])) {
         //IF failed to remove image then add an error message and stop the process
         if ($remove == false) {
             //Set the SEssion Message
-            $_SESSION['remove'] = "<div class='error'>Failed to Remove product Image.</div>";
+            $_SESSION['remove'] = "<div class='error text text-center'>Failed to Remove product Image.</div>";
             //REdirect to Manage product page
             header('location:' . SITEURL . 'admin/manage-product.php');
             //Stop the Process
@@ -38,12 +38,12 @@ if (isset($_GET['id']) and isset($_GET['imageName'])) {
     //Check whether the data is delete from database or not
     if ($res == true) {
         //SEt Success MEssage and REdirect
-        $_SESSION['delete'] = "<div class='success'>Sản phẩm đã được xóa thành công.</div>";
+        $_SESSION['delete'] = "<div class='success text text-center'>Sản phẩm đã được xóa thành công.</div>";
         //Redirect to Manage product
         header('location:' . SITEURL . 'admin/manage-product.php');
     } else {
         //SEt Fail MEssage and Redirecs
-        $_SESSION['delete'] = "<div class='error'>Không xóa được sản phẩm.</div>";
+        $_SESSION['delete'] = "<div class='error text text-center'>Không xóa được sản phẩm.</div>";
         //Redirect to Manage product
         header('location:' . SITEURL . 'admin/manage-product.php');
     }

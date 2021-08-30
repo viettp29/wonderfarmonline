@@ -106,7 +106,7 @@ include('includesAdmin/header.php');
                             <?php
                             } else {
                                 //DIsplay the MEssage
-                                echo "<div class='error'>Không thể tải lên Image.</div>";
+                                echo "<div class='error text text-center'>Không thể tải lên Image.</div>";
                             }
                             ?>
 
@@ -129,7 +129,7 @@ include('includesAdmin/header.php');
 
                 <tr>
                     <td colspan="6">
-                        <div class="error">Không có sản phẩm được thêm vào.</div>
+                        <div class="error text text-center">Không có sản phẩm được thêm vào.</div>
                     </td>
                 </tr>
 

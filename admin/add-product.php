@@ -110,7 +110,7 @@ include('includesAdmin/header.php');
                     //And if the image is not uploaded then we will stop the process and redirect with error message
                     if ($upload == false) {
                         //SEt message
-                        $_SESSION['upload'] = "<div class='error'>Upload ảnh không thành công! </div>";
+                        $_SESSION['upload'] = "<div class='error text text-center'>Upload ảnh không thành công! </div>";
                         //Redirect to Add Product Page
                         header('location: add-product.php');
                         //STop the Process
@@ -135,12 +135,12 @@ include('includesAdmin/header.php');
             //4. Check whether the query executed or not and data added or not
             if ($res == true) {
                 //Query Executed and Product Added
-                $_SESSION['add'] = "<div class='success'>Sản phẩm đã được thêm thành công.</div>";
+                $_SESSION['add'] = "<div class='success text text-center'>Sản phẩm đã được thêm thành công.</div>";
                 //Redirect to Manage Product Page
                 header('location: manage-product.php');
             } else {
                 //Failed to Add Product
-                $_SESSION['add'] = "<div class='error'>Thêm sản phẩm thất bại.</div>";
+                $_SESSION['add'] = "<div class='error text text-center'>Thêm sản phẩm thất bại.</div>";
                 //Redirect to Manage Product Page
                 header('location: add-product.php');
             }

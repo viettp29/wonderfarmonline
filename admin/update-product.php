@@ -137,7 +137,7 @@ include('includesAdmin/header.php');
                     //Và nếu hình ảnh không được tải lên thì chúng tôi sẽ dừng quá trình và chuyển hướng với thông báo lỗi
                     if ($upload == false) {
                         //SEt message
-                        $_SESSION['upload'] = "<div class='error'>Không tải lên được hình ảnh. </div>";
+                        $_SESSION['upload'] = "<div class='error text text-center'>Không tải lên được hình ảnh. </div>";
                         //Redirect to Add Product Page
                         header('location:' . SITEURL . 'admin/manage-product.php');
                         //STop the Process
@@ -154,7 +154,7 @@ include('includesAdmin/header.php');
                         //Nếu không loại bỏ được thì hiển thị thông báo và dừng quá trình
                         if ($remove == false) {
                             //Failed to remove image
-                            $_SESSION['failed-remove'] = "<div class='error'>Không xóa được Hình ảnh hiện tại.</div>";
+                            $_SESSION['failed-remove'] = "<div class='error text text-center'>Không xóa được Hình ảnh hiện tại.</div>";
                             header('location:' . SITEURL . 'admin/manage-Product.php');
                             die(); //Stop the Process
                         }
@@ -181,11 +181,11 @@ include('includesAdmin/header.php');
             //CHeck whether executed or not
             if ($res2 == true) {
                 //Product Updated
-                $_SESSION['update'] = "<div class='success'>Đã cập nhật sản phẩm thành công.</div>";
+                $_SESSION['update'] = "<div class='success text text-center'>Đã cập nhật sản phẩm thành công.</div>";
                 header('location:' . SITEURL . 'admin/manage-Product.php');
             } else {
                 //failed to update Product
-                $_SESSION['update'] = "<div class='error'>Không cập nhật được sản phẩm.</div>";
+                $_SESSION['update'] = "<div class='error text text-center'>Không cập nhật được sản phẩm.</div>";
                 header('location:' . SITEURL . 'admin/manage-product.php');
             }
         }

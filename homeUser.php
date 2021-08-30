@@ -1,6 +1,5 @@
 <?php
 include('includes/connection.php');
-include('permission-user.php');
 include('includes/headerUser.php');
 ?>
 <!-- start carousel slider-->
@@ -44,6 +43,10 @@ include('includes/headerUser.php');
 if (isset($_SESSION['success'])) {
           echo $_SESSION['success'];
           unset($_SESSION['success']);
+}
+if (isset($_SESSION['order'])) {
+          echo $_SESSION['order'];
+          unset($_SESSION['order']);
 }
 ?>
 <!--Start sản phẩm thương hiệu-->
@@ -275,5 +278,6 @@ if (isset($_SESSION['success'])) {
                               </div>
                               <!--End tabs -->
                     </div>
-                    <?php
-                    include 'includes/footer.php'; ?>
+                    <?php include 'includes/footer.php';
+                    ob_end_flush();
+                    ?>

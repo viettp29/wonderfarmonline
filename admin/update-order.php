@@ -19,7 +19,7 @@ include('includesAdmin/header.php');
 
             //Get all other details based on this id
             //SQL Query to get the order details
-            $sql = "SELECT * FROM tbl_order WHERE id=$id";
+            $sql = "SELECT * FROM orders WHERE orderId='$id'";
             //Execute Query
             $res = mysqli_query($conn, $sql);
             //Count Rows
@@ -28,23 +28,21 @@ include('includesAdmin/header.php');
             if ($count == 1) {
                 //Detail Availble
                 $row = mysqli_fetch_assoc($res);
-
-                $food = $row['food'];
+                $drink = $row['drink'];
                 $price = $row['price'];
-                $qty = $row['qty'];
+                $quantity = $row['quantity'];
                 $status = $row['status'];
-                $customer_name = $row['customer_name'];
-                $customer_contact = $row['customer_contact'];
-                $customer_email = $row['customer_email'];
-                $customer_address = $row['customer_address'];
+                $customer_name = $row['customerName'];
+                $customerPhone = $row['customerPhone'];
+                $customer_address = $row['customerAddress'];
             } else {
                 //DEtail not Available/
                 //Redirect to Manage Order
-                header('location:' . SITEURL . 'admin/manage-order.php');
+                header('location: manage-order.php');
             }
         } else {
             //REdirect to Manage ORder PAge
-            header('location:' . SITEURL . 'admin/manage-order.php');
+            header('location: manage-order.php');
         }
 
         ?>
@@ -53,8 +51,8 @@ include('includesAdmin/header.php');
 
             <table class="tbl-30">
                 <tr>
-                    <td>Food Name</td>
-                    <td><b> <?php echo $food; ?> </b></td>
+                    <td>Đồ uống</td>
+                    <td><b> <?php echo $drink; ?> </b></td>
                 </tr>
 
                 <tr>
@@ -65,9 +63,9 @@ include('includesAdmin/header.php');
                 </tr>
 
                 <tr>
-                    <td>Qty</td>
+                    <td>Số lượng</td>
                     <td>
-                        <input type="number" name="qty" value="<?php echo $qty; ?>">
+                        <input type="number" name="qty" value="<?php echo $quantity; ?>">
                     </td>
                 </tr>
 
@@ -92,28 +90,21 @@ include('includesAdmin/header.php');
                 </tr>
 
                 <tr>
-                    <td>Customer Name: </td>
+                    <td>Họ tên: </td>
                     <td>
                         <input type="text" name="customer_name" value="<?php echo $customer_name; ?>">
                     </td>
                 </tr>
 
                 <tr>
-                    <td>Customer Contact: </td>
+                    <td>Số ĐT: </td>
                     <td>
-                        <input type="text" name="customer_contact" value="<?php echo $customer_contact; ?>">
+                        <input type="text" name="customerPhone" value="<?php echo $customerPhone; ?>">
                     </td>
                 </tr>
 
                 <tr>
-                    <td>Customer Email: </td>
-                    <td>
-                        <input type="text" name="customer_email" value="<?php echo $customer_email; ?>">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Customer Address: </td>
+                    <td>Địa chỉ: </td>
                     <td>
                         <textarea name="customer_address" cols="30" rows="5"><?php echo $customer_address; ?></textarea>
                     </td>
@@ -135,9 +126,9 @@ include('includesAdmin/header.php');
         <?php
         //CHeck whether Update Button is Clicked or Not
         if (isset($_POST['submit'])) {
+            $updateId = $_POST['id'];
             //echo "Clicked";
             //Get All the Values from Form
-            $id = $_POST['id'];
             $price = $_POST['price'];
             $qty = $_POST['qty'];
 
@@ -146,20 +137,18 @@ include('includesAdmin/header.php');
             $status = $_POST['status'];
 
             $customer_name = $_POST['customer_name'];
-            $customer_contact = $_POST['customer_contact'];
-            $customer_email = $_POST['customer_email'];
+            $customerPhone = $_POST['customerPhone'];
             $customer_address = $_POST['customer_address'];
 
             //Update the Values
-            $sql2 = "UPDATE tbl_order SET 
-                    qty = $qty,
-                    total = $total,
+            $sql2 = "UPDATE orders SET 
+                    quantity = '$qty',
+                    total = '$total',
                     status = '$status',
-                    customer_name = '$customer_name',
-                    customer_contact = '$customer_contact',
-                    customer_email = '$customer_email',
-                    customer_address = '$customer_address'
-                    WHERE id=$id
+                    customerName = '$customer_name',
+                    customerPhone = '$customerPhone',
+                    customerAddress = '$customer_address'
+                    WHERE orderId='$updateId'
                 ";
 
             //Execute the Query
@@ -169,12 +158,12 @@ include('includesAdmin/header.php');
             //And REdirect to Manage Order with Message
             if ($res2 == true) {
                 //Updated
-                $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
-                header('location:' . SITEURL . 'admin/manage-order.php');
+                $_SESSION['update'] = "<div class='success text text-center'>Đã cập nhật đơn hàng thành công.</div>";
+                header('location: manage-order.php');
             } else {
                 //Failed to Update
-                $_SESSION['update'] = "<div class='error'>Failed to Update Order.</div>";
-                header('location:' . SITEURL . 'admin/manage-order.php');
+                $_SESSION['update'] = "<div class='error text text-center'>Không cập nhật được đơn đặt hàng.</div>";
+                header('location: manage-order.php');
             }
         }
         ?>

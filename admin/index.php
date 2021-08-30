@@ -68,7 +68,7 @@ include('permission-admin.php');
                               <?php
                               //Creat SQL Query to Get Total Revenue Generated
                               //Aggregate Function in SQL
-                              $sql4 = "SELECT SUM(total) AS Total FROM orders WHERE status='1'";
+                              $sql4 = "SELECT SUM(total) AS Total FROM orders WHERE status='Delivered'";
 
                               //Execute the Query
                               $res4 = mysqli_query($conn, $sql4);

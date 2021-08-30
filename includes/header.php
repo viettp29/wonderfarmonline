@@ -62,6 +62,27 @@
                                                                                                     <li class="nav-item">
                                                                                                               <a href="index.php" class="nav-link">TRANG CHỦ</a>
                                                                                                     </li>
+
+                                                                                                    <li class="nav-item">
+                                                                                                              <a href="./my-order.php" class="nav-link">ĐƠN HÀNG</a>
+                                                                                                    </li>
+                                                                                                    <li class="nav-item">
+                                                                                                              <a href="product.php" class="nav-link">SẢN PHẨM</a>
+                                                                                                              <ul class="sub-menu">
+                                                                                                                        <?php
+                                                                                                                        $queryProduct = "SELECT * FROM product";
+                                                                                                                        $wait = mysqli_query($conn, $queryProduct);
+                                                                                                                        while ($col = mysqli_fetch_assoc($wait)) {
+                                                                                                                                  $proID = $col['productId'];
+                                                                                                                                  $tit = $col['title'];
+                                                                                                                        ?>
+                                                                                                                                  <li><a href="product-drink.php?product_id=<?php echo $proID; ?>"><?php echo $tit; ?></a></li>
+                                                                                                                        <?php
+                                                                                                                        }
+                                                                                                                        ?>
+                                                                                                                        <li><a href="drink.php">TẤT CẢ ĐỒ UỐNG</a></li>
+                                                                                                              </ul>
+                                                                                                    </li>
                                                                                                     <li class="nav-item">
                                                                                                               <a href="" class="nav-link">CÔNG TY</a>
                                                                                                               <ul class="sub-menu">
@@ -70,14 +91,6 @@
                                                                                                                         <li><a href="">KIRIN TOÀN CẦU</a></li>
                                                                                                                         <li><a href="">TRIẾT LÝ KINH DOANH</a></li>
                                                                                                                         <li><a href="">THÔNG ĐIỆP TỪ TÔNG GIÁM ĐỐC</a></li>
-                                                                                                              </ul>
-                                                                                                    </li>
-                                                                                                    <li class="nav-item">
-                                                                                                              <a href="" class="nav-link">SẢN PHẨM</a>
-                                                                                                              <ul class="sub-menu">
-                                                                                                                        <li><a href="">WONDERFARM</a></li>
-                                                                                                                        <li><a href="">KIRIN</a></li>
-                                                                                                                        <li><a href="">THÔNG TIN SẢN PHẨM</a></li>
                                                                                                               </ul>
                                                                                                     </li>
                                                                                                     <li class="nav-item">
@@ -102,10 +115,6 @@
                                                                                                     <li class="nav-item">
 
                                                                                                               <a href="" class="nav-link">CỔ ĐÔNG</a>
-                                                                                                    </li>
-                                                                                                    <li class="nav-item">
-
-                                                                                                              <a href="" class="nav-link">LIÊN HỆ</a>
                                                                                                     </li>
                                                                                           </ul>
 

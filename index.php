@@ -48,6 +48,10 @@ if (isset($_SESSION['login'])) {
           echo $_SESSION['login'];
           unset($_SESSION['login']);
 }
+if (isset($_SESSION['order'])) {
+          echo $_SESSION['order'];
+          unset($_SESSION['order']);
+}
 ?>
 <!--Start sản phẩm thương hiệu-->
 <div class="h-products">
@@ -278,6 +282,6 @@ if (isset($_SESSION['login'])) {
                               </div>
                               <!--End tabs -->
                     </div>
-                    <?php
-                    include 'includes/footer.php';
+                    <?php include 'includes/footer.php';
+                    ob_end_flush();
                     ?>

@@ -163,7 +163,7 @@ include('includesAdmin/header.php');
                     if ($upload == false) {
                         //Failed to Upload the image
                         //REdirect to Add Drink Page with Error Message
-                        $_SESSION['upload'] = "<div class='error'>Failed to Upload Image.</div>";
+                        $_SESSION['upload'] = "<div class='error text text-center'>Failed to Upload Image.</div>";
                         header('location: ' . SITEURL . 'admin/add-drink.php');
                         //STop the process
                         die();
@@ -193,11 +193,11 @@ include('includesAdmin/header.php');
             //4. Redirect with MEssage to Manage Drink page
             if ($res2 == true) {
                 //Data inserted Successfullly
-                $_SESSION['add'] = "<div class='success'>Thêm đồ uống thành công.</div>";
+                $_SESSION['add'] = "<div class='success text text-center'>Thêm đồ uống thành công.</div>";
                 header('location: manage-drink.php');
             } else {
                 //FAiled to Insert Data
-                $_SESSION['add'] = "<div class='error'>Thêm đồ uống thất bại.</div>";
+                $_SESSION['add'] = "<div class='error text text-center'>Thêm đồ uống thất bại.</div>";
                 header('location: manage-drink.php');
             }
         }

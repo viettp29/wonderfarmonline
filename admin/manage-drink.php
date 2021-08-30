@@ -87,7 +87,7 @@ include('includesAdmin/header.php');
                             //CHeck whether we have image or not
                             if ($imageName == "") {
                                 //WE do not have image, DIslpay Error Message
-                                echo "<div class='error'>Image not Added.</div>";
+                                echo "<div class='error text text-center'>Image not Added.</div>";
                             } else {
                                 //WE Have Image, Display Image
                             ?>
@@ -107,7 +107,7 @@ include('includesAdmin/header.php');
                 }
             } else {
                 //drink not Added in Database
-                echo "<tr> <td colspan='7' class='error'>Đồ uống chưa được thêm vào. </td> </tr>";
+                echo "<tr> <td colspan='7' class='error text text-center'>Đồ uống chưa được thêm vào. </td> </tr>";
             }
 
             ?>
