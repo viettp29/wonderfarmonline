@@ -31,9 +31,11 @@ if (isset($_POST["btn_submit"])) {
                                         $_SESSION["user_name"] = $data["username"];
                                         $_SESSION["role_User"] = $data["role"];
                                         if ($_SESSION["role_User"] == 0) {
+                                                  $_SESSION["success"] = "<div class='success'>Bạn đã đăng nhập thành công.</div>";
                                                   header('Location: homeUser.php');
                                         } else {
-                                                  header('Location: admin/admin.php');
+                                                  $_SESSION["success"] = "<div class='success'>Bạn đã đăng nhập thành công.</div>";
+                                                  header('Location: admin/index.php');
                                         }
                               } else {
                                         echo "tên đăng nhập hoặc mật khẩu không đúng !";

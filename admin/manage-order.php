@@ -1,5 +1,7 @@
 <?php
+ob_start();
 include('../includes/connection.php');
+include('permission-admin.php');
 include('includesAdmin/header.php');
 ?>
 <div class="main-content">
@@ -105,4 +107,6 @@ include('includesAdmin/header.php');
 
 </div>
 
-<?php include('includesAdmin/footer.php'); ?>
+<?php include('includesAdmin/footer.php');
+ob_end_flush();
+?>

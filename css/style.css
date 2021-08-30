@@ -87,6 +87,14 @@ nav li:hover > ul {
 .navbar-nav li ul {
   width: 10%;
 }
+
+/* message */
+.success {
+  color: #2ed573;
+}
+.error {
+  color: #ff4757;
+}
 ul li a:hover {
   color: #f1f2f3;
 }

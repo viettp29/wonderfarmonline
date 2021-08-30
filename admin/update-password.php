@@ -1,17 +1,30 @@
-<?php include('../includes/connection.php');
-include('includesAdmin/header.php'); ?>
+<?php
+ob_start();
+include('../includes/connection.php');
+include('permission-admin.php');
+include('includesAdmin/header.php');
+?>
 <div class="main-content">
     <div class="wrapper">
         <h1>Đổi Mật Khẩu</h1>
+        <?php if (isset($_SESSION['user-not-found'])) {
+            echo $_SESSION['user-not-found'];
+            unset($_SESSION['user-not-found']);
+            unset($_SESSION['user-not-found']);
+        }
+        if (isset($_SESSION['pwd-not-match'])) {
+            echo $_SESSION['pwd-not-match'];
+            unset($_SESSION['pwd-not-match']);
+        }
+        ?>
         <br><br>
-
         <?php
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
         }
         ?>
 
-        <form action="" method="POST">
+        <form action="update-password.php" method="POST">
 
             <table class="tbl-30">
                 <tr>
@@ -48,9 +61,7 @@ include('includesAdmin/header.php'); ?>
 
     </div>
 </div>
-
 <?php
-
 //CHeck whether the Submit Button is Clicked on Not
 if (isset($_POST['submit'])) {
     //echo "CLicked";
@@ -59,13 +70,25 @@ if (isset($_POST['submit'])) {
     $current_password = $_POST['current_password'];
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
-
+    $uppercase = preg_match('@[A-Z]@', $new_password);
+    $lowercase = preg_match('@[a-z]@', $new_password);
+    $number    = preg_match('@[0-9]@', $new_password);
     // check 2 pass mới trùng không
-    if ($new_password === $confirm_password) {
+    if ((!$uppercase || !$lowercase || !$number || strlen($new_password) < 8)) {
+        $_SESSION['pwd-not-match'] = "<div class='error'>Mật khẩu mới của bạn không đúng. 
+        Mật khẩu phải chứa ít nhất một chữ hoa, một chữ thường và số. </div>";
+        //Redirect the User
+        header('location: update-password.php');
+    }
+    if (($new_password === $confirm_password)) {
         $sql = "SELECT * FROM users WHERE userId=$id";
         // check có tài khoản được yêu cầu đổi pass k
         $res = mysqli_query($conn, $sql);
-        if ($res == true) {
+        if ($res == false) {
+            $_SESSION['user-not-found'] = "<div class='error'>Không tìm thấy người dùng. </div>";
+            //Redirect the User
+            header('location: manage-user.php');
+        } else {
             $count = mysqli_num_rows($res);
             // nếu có 1 thì lấy ra mật khẩu
             if ($count == 1) {
@@ -74,7 +97,7 @@ if (isset($_POST['submit'])) {
                 // so sánh mật khẩu người dùng nhập với pass trên DB
                 if (password_verify($current_password, $password)) {
                     // nếu pass khớp thì thực hiện hash pass mới và đổi pass
-                    $passwordNew = password_hash($current_password, PASSWORD_DEFAULT);
+                    $passwordNew = password_hash($new_password, PASSWORD_DEFAULT);
                     $sql2 = "UPDATE users SET
                    password='$passwordNew' 
                    WHERE userId='$id'";
@@ -83,32 +106,31 @@ if (isset($_POST['submit'])) {
                     if ($res2 == true) {
                         $_SESSION['change-pwd'] = "<div class='success'>Đã thay đổi mật khẩu thành công. </div>";
                         //Redirect the User
-                        header('location:' . SITEURL . 'admin/manage-user.php');
+                        header('location: manage-user.php');
                     } else {
                         $_SESSION['change-pwd'] = "<div class='error'>Đổi mật khẩu thất bại. </div>";
                         //Redirect the User
-                        header('location:' . SITEURL . 'admin/manage-user.php');
+                        header('location: manage-user.php');
                     }
                 } else {
-                    $_SESSION['change-pwd'] = "<div class='error'>Mật khẩu không đúng. </div>";
+                    $_SESSION['pwd-not-match'] = "<div class='error'>Mật khẩu hiện tại không đúng. </div>";
                     //Redirect the User
-                    header('location:' . SITEURL . 'admin/manage-user.php');
+                    header('location: update-password.php');
                 }
             } else {
                 $_SESSION['user-not-found'] = "<div class='error'> Tài khoản không hợp lệ. </div>";
                 //Redirect the User
-                header('location:' . SITEURL . 'admin/manage-user.php');
+                header('location: update-password.php');
             }
-        } else {
-            $_SESSION['user-not-found'] = "<div class='error'>Không tìm thấy người dùng. </div>";
-            //Redirect the User
-            header('location:' . SITEURL . 'admin/manage-user.php');
         }
     } else {
-        $_SESSION['pwd-not-match'] = "<div class='error'>Mật khẩu không trùng. </div>";
+        $_SESSION['pwd-not-match'] = "<div class='error'>Mật khẩu mới của bạn không đúng. 
+        Mật khẩu phải chứa ít nhất một chữ hoa, một chữ thường và số. </div>";
         //Redirect the User
-        header('location:' . SITEURL . 'admin/manage-user.php');
+        header('location: update-password.php');
     }
 }
 ?>
-<?php include('includesAdmin/footer.php'); ?>
+<?php include('includesAdmin/footer.php'); //' . SITEURL . 'admin/
+ob_end_flush();
+?>

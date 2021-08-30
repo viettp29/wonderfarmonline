@@ -1,5 +1,6 @@
 <?php
 include('includes/connection.php');
+include('permission-user.php');
 include('includes/headerUser.php');
 ?>
 <!-- start carousel slider-->
@@ -40,9 +41,9 @@ include('includes/headerUser.php');
 <!--End carousel slider-->
 <br>
 <?php
-if (isset($_SESSION['register'])) {
-          echo $_SESSION['register'];
-          unset($_SESSION['register']);
+if (isset($_SESSION['success'])) {
+          echo $_SESSION['success'];
+          unset($_SESSION['success']);
 }
 ?>
 <!--Start sản phẩm thương hiệu-->

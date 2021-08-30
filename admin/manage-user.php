@@ -1,5 +1,7 @@
 <?php
+ob_start();
 include('../includes/connection.php');
+include('permission-admin.php');
 include('includesAdmin/header.php');
 ?>
 
@@ -22,17 +24,6 @@ include('includesAdmin/header.php');
             echo $_SESSION['update'];
             unset($_SESSION['update']);
         }
-        // trong update pass
-        if (isset($_SESSION['user-not-found'])) {
-            echo $_SESSION['user-not-found'];
-            unset($_SESSION['user-not-found']);
-        }
-
-        if (isset($_SESSION['pwd-not-match'])) {
-            echo $_SESSION['pwd-not-match'];
-            unset($_SESSION['pwd-not-match']);
-        }
-
         if (isset($_SESSION['change-pwd'])) {
             echo $_SESSION['change-pwd'];
             unset($_SESSION['change-pwd']);
@@ -111,5 +102,6 @@ include('includesAdmin/header.php');
     </div>
 </div>
 <!-- Main Content Setion Ends -->
-
-<?php include('includesAdmin/footer.php'); ?>
+<?php include('includesAdmin/footer.php');
+ob_end_flush();
+?>

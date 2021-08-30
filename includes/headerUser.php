@@ -12,7 +12,7 @@
           <link rel="stylesheet" href="assets/vendor/slick-carousel/slick/slick.css">
           <link rel="stylesheet" href="css/style.css">
           <meta name="viewport" content="width=device-width">
-          <title>Document</title>
+          <title>User Profile</title>
 </head>
 
 
@@ -23,7 +23,7 @@
                     <!-- lv2 -->
                     <div class="top hidden-sm hidden-xs">
                               <!-- lv3 -->
-                              <div class="container text-right" style="margin: 0 75%; ">
+                              <div class="container text-right" style="margin: 0 82%; ">
                                         <!--CHUYỂN NGÔN NGỮ LV4-->
                                         <button type="button" class="btn btn-outline-danger rounded-pill "><a href="./admin/logout.php">Đăng xuất</a> </button> <!-- <button type=" btn-outline-danger"><a href="./admin/logout.php" class="text-dark " style="text-decoration: none;">Logout</a></button> -->
 
@@ -41,7 +41,7 @@
                                         <div class="row row-ibl mid col-mar-0">
                                                   <!-- start logo-->
                                                   <div class="col-md-3 col-xs-12 sm-center">
-                                                            <a class="logo" href="index.php" title="">
+                                                            <a class="logo" href="homeUser.php" title="">
                                                                       <img src="images/logo2.png" alt="" title="">
                                                             </a>
                                                   </div>
@@ -63,14 +63,7 @@
                                                                                                               <a href="homeUser.php" class="nav-link">TRANG CHỦ</a>
                                                                                                     </li>
                                                                                                     <li class="nav-item">
-                                                                                                              <a href="" class="nav-link">CÔNG TY</a>
-                                                                                                              <ul class="sub-menu">
-                                                                                                                        <li><a href="">THÔNG TIN CHUNG</a></li>
-                                                                                                                        <li><a href="">LỊCH SỬ THÀNH LẬP</a></li>
-                                                                                                                        <li><a href="">KIRIN TOÀN CẦU</a></li>
-                                                                                                                        <li><a href="">TRIẾT LÝ KINH DOANH</a></li>
-                                                                                                                        <li><a href="">THÔNG ĐIỆP TỪ TÔNG GIÁM ĐỐC</a></li>
-                                                                                                              </ul>
+                                                                                                              <a href="" class="nav-link">ĐƠN HÀNG</a>
                                                                                                     </li>
                                                                                                     <li class="nav-item">
                                                                                                               <a href="" class="nav-link">SẢN PHẨM</a>
@@ -78,6 +71,16 @@
                                                                                                                         <li><a href="">WONDERFARM</a></li>
                                                                                                                         <li><a href="">KIRIN</a></li>
                                                                                                                         <li><a href="">THÔNG TIN SẢN PHẨM</a></li>
+                                                                                                              </ul>
+                                                                                                    </li>
+                                                                                                    <li class="nav-item">
+                                                                                                              <a href="" class="nav-link">CÔNG TY</a>
+                                                                                                              <ul class="sub-menu">
+                                                                                                                        <li><a href="">THÔNG TIN CHUNG</a></li>
+                                                                                                                        <li><a href="">LỊCH SỬ THÀNH LẬP</a></li>
+                                                                                                                        <li><a href="">KIRIN TOÀN CẦU</a></li>
+                                                                                                                        <li><a href="">TRIẾT LÝ KINH DOANH</a></li>
+                                                                                                                        <li><a href="">THÔNG ĐIỆP TỪ TÔNG GIÁM ĐỐC</a></li>
                                                                                                               </ul>
                                                                                                     </li>
                                                                                                     <li class="nav-item">
@@ -102,10 +105,6 @@
                                                                                                     <li class="nav-item">
 
                                                                                                               <a href="" class="nav-link">CỔ ĐÔNG</a>
-                                                                                                    </li>
-                                                                                                    <li class="nav-item">
-
-                                                                                                              <a href="" class="nav-link">LIÊN HỆ</a>
                                                                                                     </li>
                                                                                           </ul>
 

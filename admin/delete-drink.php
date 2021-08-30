@@ -1,7 +1,7 @@
 <?php
 //Include COnstants Page
 include('../includes/connection.php');
-
+include('permission-admin.php');
 //echo "Delete drink Page";
 
 if (isset($_GET['id']) && isset($_GET['imageName'])) //Either use '&&' or 'AND'

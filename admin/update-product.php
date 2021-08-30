@@ -1,5 +1,9 @@
-<?php include('../includes/connection.php');
-include('includesAdmin/header.php'); ?>
+<?php
+ob_start();
+include('../includes/connection.php');
+include('permission-admin.php');
+include('includesAdmin/header.php');
+?>
 <div class="main-content">
     <div class="wrapper">
         <h2>Cập Nhập Sản Phẩm </h2>
@@ -25,7 +29,6 @@ include('includesAdmin/header.php'); ?>
                 $row = mysqli_fetch_assoc($res);
                 $title = $row['title'];
                 $current_image = $row['imageName'];
-                $featured = $row['featured'];
                 $active = $row['active'];
             } else {
                 //redirect to manage Product with session message
@@ -37,7 +40,7 @@ include('includesAdmin/header.php'); ?>
             header('location:' . SITEURL . 'admin/manage-product.php');
         }
         ?>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="update-product.php" method="POST" enctype="multipart/form-data">
 
             <table class="tbl-30">
                 <tr>
@@ -72,19 +75,6 @@ include('includesAdmin/header.php'); ?>
                 </tr>
 
                 <tr>
-                    <td>Featured: </td>
-                    <td>
-                        <input <?php if ($featured == "Yes") {
-                                    echo "checked";
-                                } ?> type="radio" name="featured" value="Yes"> Yes
-
-                        <input <?php if ($featured == "No") {
-                                    echo "checked";
-                                } ?> type="radio" name="featured" value="No"> No
-                    </td>
-                </tr>
-
-                <tr>
                     <td>Còn hoạt động: </td>
                     <td>
                         <input <?php if ($active == "Yes") {
@@ -115,7 +105,6 @@ include('includesAdmin/header.php'); ?>
             $id = $_POST['id'];
             $title = $_POST['title'];
             $current_image = $_POST['current_image'];
-            $featured = $_POST['featured'];
             $active = $_POST['active'];
 
             //2. update ảnh mới nếu được chọn
@@ -139,7 +128,7 @@ include('includesAdmin/header.php'); ?>
                     // đường dẫn nguồn
                     $source_path = $_FILES['image']['tmp_name'];
                     // đường dẫn đích
-                    $destination_path = "/images/product/" . $imageName;
+                    $destination_path = "images/product/" . $imageName;
 
                     // cuối cùng tải lên hình ảnh
                     $upload = move_uploaded_file($source_path, $destination_path);
@@ -181,7 +170,6 @@ include('includesAdmin/header.php'); ?>
             $sql2 = "UPDATE product SET
                     title = '$title',
                     imageName = '$imageName',
-                    featured = '$featured',
                     active = '$active' 
                     WHERE productId='$id'
                 ";
@@ -205,5 +193,6 @@ include('includesAdmin/header.php'); ?>
 
     </div>
 </div>
-
-<?php include('includesAdmin/footer.php'); ?>
+<?php include('includesAdmin/footer.php');
+ob_end_flush();
+?>

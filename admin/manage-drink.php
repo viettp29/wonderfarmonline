@@ -1,5 +1,7 @@
 <?php
+ob_start();
 include('../includes/connection.php');
+include('permission-admin.php');
 include('includesAdmin/header.php');
 ?>
 <div class="main-content">
@@ -47,7 +49,6 @@ include('includesAdmin/header.php');
                 <th>Tiêu đề</th>
                 <th>Giá</th>
                 <th>Hình ảnh</th>
-                <th>Featured</th>
                 <th>Còn hoạt động</th>
                 <th>Hành động</th>
             </tr>
@@ -74,7 +75,6 @@ include('includesAdmin/header.php');
                     $title = $row['title'];
                     $price = $row['price'];
                     $imageName = $row['imageName'];
-                    $featured = $row['featured'];
                     $active = $row['active'];
             ?>
 
@@ -96,7 +96,6 @@ include('includesAdmin/header.php');
                             }
                             ?>
                         </td>
-                        <td><?php echo $featured; ?></td>
                         <td><?php echo $active; ?></td>
                         <td>
                             <a href="update-drink.php?id=<?php echo $id; ?>" class="btn-secondary">Cập nhập đồ uống</a>
@@ -119,4 +118,6 @@ include('includesAdmin/header.php');
 
 </div>
 
-<?php include('includesAdmin/footer.php'); ?>
+<?php include('includesAdmin/footer.php');
+ob_end_flush();
+?>

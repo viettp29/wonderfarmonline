@@ -1,5 +1,7 @@
 <?php
+ob_start();
 include('../includes/connection.php');
+include('permission-admin.php');
 include('includesAdmin/header.php');
 ?>
 <div class="main-content">
@@ -25,7 +27,7 @@ include('includesAdmin/header.php');
         <br><br>
 
         <!-- Add product image + title -->
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="add-product.php" method="POST" enctype="multipart/form-data">
 
             <table class="tbl-30">
                 <tr>
@@ -39,14 +41,6 @@ include('includesAdmin/header.php');
                     <td>Chọn ảnh: </td>
                     <td>
                         <input type="file" name="image">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Featured: </td>
-                    <td>
-                        <input type="radio" name="featured" value="Yes"> Yes
-                        <input type="radio" name="featured" value="No"> No
                     </td>
                 </tr>
 
@@ -77,15 +71,6 @@ include('includesAdmin/header.php');
 
             //1. Get the Value from Product Form
             $title = $_POST['title'];
-
-            //For Radio input, we need to check whether the button is selected or not
-            if (isset($_POST['featured'])) {
-                //Get the VAlue from form
-                $featured = $_POST['featured'];
-            } else {
-                //SEt the Default VAlue
-                $featured = "No";
-            }
 
             if (isset($_POST['active'])) {
                 $active = $_POST['active'];
@@ -141,7 +126,6 @@ include('includesAdmin/header.php');
             $sql = "INSERT INTO product SET 
                     title='$title',
                     imageName='$image_name',
-                    featured='$featured',
                     active='$active'
                 ";
 
@@ -167,4 +151,6 @@ include('includesAdmin/header.php');
     </div>
 </div>
 
-<?php include('includesAdmin/footer.php'); ?>
+<?php include('includesAdmin/footer.php');
+ob_end_flush();
+?>

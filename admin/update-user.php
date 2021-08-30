@@ -1,5 +1,9 @@
-<?php include('../includes/connection.php');
-include('includesAdmin/header.php'); ?>
+<?php
+ob_start();
+include('../includes/connection.php');
+include('permission-admin.php');
+include('includesAdmin/header.php');
+?>
 <div class="main-content">
     <div class="wrapper">
         <h1>Cập Nhập Người Dùng</h1>
@@ -37,7 +41,7 @@ include('includesAdmin/header.php'); ?>
         ?>
 
 
-        <form action="" method="POST">
+        <form action="update-user.php" method="POST">
 
             <table class="tbl-30">
                 <tr>
@@ -106,8 +110,7 @@ if (isset($_POST['submit'])) {
         header('location:' . SITEURL . 'admin/manage-user.php');
     }
 }
-
 ?>
-
-
-<?php include('includesAdmin/footer.php'); ?>
+<?php include('includesAdmin/footer.php');
+ob_end_flush();
+?>

@@ -1,7 +1,7 @@
 <?php
 //Include Constants File
 include('../includes/connection.php');
-
+include('permission-admin.php');
 //echo "Delete Page";
 //Check whether the id and imageName value is set or not
 if (isset($_GET['id']) and isset($_GET['imageName'])) {

@@ -1,5 +1,7 @@
 <?php
+ob_start();
 include('../includes/connection.php');
+include('permission-admin.php');
 include('includesAdmin/header.php');
 ?>
 <?php
@@ -22,7 +24,6 @@ if (isset($_GET['id'])) {
     $price = $row2['price'];
     $current_image = $row2['imageName'];
     $current_product = $row2['productId'];
-    $featured = $row2['featured'];
     $active = $row2['active'];
 } else {
     //Redirect to Manage drink
@@ -36,7 +37,7 @@ if (isset($_GET['id'])) {
         <h2>Cập nhập đồ uống</h2>
         <br><br>
 
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="update-drink.php" method="POST" enctype="multipart/form-data">
 
             <table class="tbl-30">
 
@@ -124,18 +125,6 @@ if (isset($_GET['id'])) {
                 </tr>
 
                 <tr>
-                    <td>Featured: </td>
-                    <td>
-                        <input <?php if ($featured == "Yes") {
-                                    echo "checked";
-                                } ?> type="radio" name="featured" value="Yes"> Yes
-                        <input <?php if ($featured == "No") {
-                                    echo "checked";
-                                } ?> type="radio" name="featured" value="No"> No
-                    </td>
-                </tr>
-
-                <tr>
                     <td>Còn hoạt động: </td>
                     <td>
                         <input <?php if ($active == "Yes") {
@@ -152,7 +141,7 @@ if (isset($_GET['id'])) {
                         <input type="hidden" name="drinkId" value="<?php echo $drinkId; ?>">
                         <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
 
-                        <input type="submit" name="submit" value="Update drink" class="btn-secondary">
+                        <input type="submit" name="submit" value="Cập nhập đồ uống" class="btn-secondary">
                     </td>
                 </tr>
 
@@ -172,8 +161,6 @@ if (isset($_GET['id'])) {
             $price = $_POST['price'];
             $current_image = $_POST['current_image'];
             $product = $_POST['product'];
-
-            $featured = $_POST['featured'];
             $active = $_POST['active'];
 
             //2. Upload the image if selected
@@ -244,7 +231,6 @@ if (isset($_GET['id'])) {
                     price = '$price',
                     imageName = '$imageName',
                     productId = '$productId',
-                    featured = '$featured',
                     active = '$active'
                     WHERE drinkId='$drinkId'
                 ";
@@ -268,5 +254,6 @@ if (isset($_GET['id'])) {
 
     </div>
 </div>
-
-<?php include('includesAdmin/footer.php'); ?>
+<?php include('includesAdmin/footer.php');
+ob_end_flush();
+?>

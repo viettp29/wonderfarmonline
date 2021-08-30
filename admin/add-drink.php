@@ -1,5 +1,7 @@
 <?php
+ob_start();
 include('../includes/connection.php');
+include('permission-admin.php');
 include('includesAdmin/header.php');
 ?>
 <div class="main-content">
@@ -15,7 +17,7 @@ include('includesAdmin/header.php');
         }
         ?>
 
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="add-drink.php" method="POST" enctype="multipart/form-data">
 
             <table class="tbl-30">
 
@@ -91,15 +93,6 @@ include('includesAdmin/header.php');
                         </select>
                     </td>
                 </tr>
-
-                <tr>
-                    <td>Featured: </td>
-                    <td>
-                        <input type="radio" name="featured" value="Yes"> Yes
-                        <input type="radio" name="featured" value="No"> No
-                    </td>
-                </tr>
-
                 <tr>
                     <td>Còn hoạt động: </td>
                     <td>
@@ -131,13 +124,6 @@ include('includesAdmin/header.php');
             $description = $_POST['description'];
             $price = $_POST['price'];
             $product = $_POST['product'];
-
-            //Check whether radion button for featured and active are checked or not
-            if (isset($_POST['featured'])) {
-                $featured = $_POST['featured'];
-            } else {
-                $featured = "No"; //SEtting the Default Value
-            }
 
             if (isset($_POST['active'])) {
                 $active = $_POST['active'];
@@ -197,7 +183,6 @@ include('includesAdmin/header.php');
                     price = $price,
                     imageName = '$imageName',
                     productId = $product,
-                    featured = '$featured',
                     active = '$active'
                 ";
 
@@ -208,11 +193,11 @@ include('includesAdmin/header.php');
             //4. Redirect with MEssage to Manage Drink page
             if ($res2 == true) {
                 //Data inserted Successfullly
-                $_SESSION['add'] = "<div class='success'>Drink Added Successfully.</div>";
+                $_SESSION['add'] = "<div class='success'>Thêm đồ uống thành công.</div>";
                 header('location: manage-drink.php');
             } else {
                 //FAiled to Insert Data
-                $_SESSION['add'] = "<div class='error'>Failed to Add Drink.</div>";
+                $_SESSION['add'] = "<div class='error'>Thêm đồ uống thất bại.</div>";
                 header('location: manage-drink.php');
             }
         }
@@ -222,5 +207,6 @@ include('includesAdmin/header.php');
 
     </div>
 </div>
-
-<?php include('includesAdmin/footer.php'); ?>
+<?php include('includesAdmin/footer.php');
+ob_end_flush();
+?>
