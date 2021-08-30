@@ -12,8 +12,7 @@ if (isset($_POST["btn_submit"])) {
           $lowercase = preg_match('@[a-z]@', $passWord);
           $number    = preg_match('@[0-9]@', $passWord);
           if ($username == "" || $passWord == "" || $fullName == "" || $email == "") {
-                    echo "bạn vui lòng nhập đầy đủ thông tin" . $back;
-                    exit;
+                    $_SESSION['register'] = "<div class='error text text-center'>bạn vui lòng nhập đầy đủ thông tin</div>";
           } else {
                     $verifyUsername = "SELECT username FROM users WHERE username='$username'";
                     $query = mysqli_query($conn, $verifyUsername);
@@ -29,7 +28,7 @@ if (isset($_POST["btn_submit"])) {
                                                   if ($_POST["password"] === $_POST["re_password"]) {
                                                             // regex kiểm tra mật khẩu
                                                             if (!$uppercase || !$lowercase || !$number || strlen($passWord) < 8) {
-                                                                      echo "Mật khẩu phải chứa ít nhất một chữ in hoa, một chữ thường và số!" . back;
+                                                                      $_SESSION['register'] = "<div class='success text-center'>Mật khẩu phải chứa ít nhất một chữ in hoa, một chữ thường và số!.</div>";
                                                             } else {
                                                                       $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
                                                                       $addUser = "INSERT INTO users(username, password, email, fullName, role) 
@@ -37,27 +36,23 @@ if (isset($_POST["btn_submit"])) {
                                                                       // thực thi câu $sql với biến conn lấy từ file connection.php
                                                                       $result = mysqli_query($conn, $addUser);
                                                                       if ($result == false) {
-                                                                                $_SESSION['register'] = "<div class='error text text-center'>Đăng ký tài khoản thất bại!.</div>" . back;
+                                                                                $_SESSION['register'] = "<div class='error text text-center'>Đăng ký tài khoản thất bại!.</div>";
                                                                       } else {
                                                                                 $_SESSION['register'] = "<div class='success text-center'>Đăng ký tài khoản thành công!.</div>";
                                                                                 header('Location: ' . SITEURL);
                                                                       }
                                                             }
                                                   } else {
-                                                            echo "Mật khẩu của bạn không khớp." . back;
-                                                            exit;
+                                                            $_SESSION['register'] = "<div class='error text text-center'>Mật khẩu của bạn không khớp.</div>";
                                                   }
                                         }
                                         // kiểm tra mật khẩu
-                                        echo "Email này đã có người dùng. Vui lòng chọn Email khác." . back;
-                                        exit;
+                                        $_SESSION['register'] = "<div class='error text text-center'>Email này đã có người dùng. Vui lòng chọn Email khác</div>";
                               } else {
-                                        echo "Email này không hợp lệ. Vui lòng chọn Email khác." . back;
-                                        exit;
+                                        $_SESSION['register'] = "<div class='error text text-center'>Email này không hợp lệ. Vui lòng chọn Email khác</div>";
                               }
                     } else {
-                              echo "Tên đăng nhập đã được sử dụng!" . back;
-                              exit;
+                              $_SESSION['register'] = "<div class='error text text-center'>Tên đăng nhập đã được sử dụng!</div>";
                     }
           }
 }

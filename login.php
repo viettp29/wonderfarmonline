@@ -28,7 +28,7 @@ if (isset($_POST["btn_submit"])) {
                     $query = mysqli_query($conn, $sql);
                     $num_rows = mysqli_num_rows($query);
                     if ($num_rows == 0) {
-                              echo "tên đăng nhập hoặc mật khẩu không đúng !";
+                              echo "<div class='error text-center'>tên đăng nhập hoặc mật khẩu không đúng !</div>";
                     } else {
                               $data = mysqli_fetch_array($query);
                               $passwordHashed = $data["password"];
@@ -44,13 +44,11 @@ if (isset($_POST["btn_submit"])) {
                                                   header('Location: admin/index.php');
                                         }
                               } else {
-                                        echo "tên đăng nhập hoặc mật khẩu không đúng !";
+                                        echo "<div class='error text-center'>tên đăng nhập hoặc mật khẩu không đúng !</div>";
                               }
                     }
           }
 }
-?>
-
 ?>
 <div class="container mt-5 mb-5">
           <div class="row d-flex align-items-center justify-content-center">
