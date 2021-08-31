@@ -73,18 +73,18 @@ include('includesAdmin/header.php');
                     <td>Status</td>
                     <td>
                         <select name="status">
-                            <option <?php if ($status == "Ordered") {
+                            <option <?php if ($status == "Đã đặt hàng") {
                                         echo "selected";
-                                    } ?> value="Ordered">Ordered</option>
-                            <option <?php if ($status == "On Delivery") {
+                                    } ?> value="Đã đặt hàng">Đã đặt hàng</option>
+                            <option <?php if ($status == "Đang giao") {
                                         echo "selected";
-                                    } ?> value="On Delivery">On Delivery</option>
-                            <option <?php if ($status == "Delivered") {
+                                    } ?> value="Đang giao">Đang giao</option>
+                            <option <?php if ($status == "Đã giao") {
                                         echo "selected";
-                                    } ?> value="Delivered">Delivered</option>
-                            <option <?php if ($status == "Cancelled") {
+                                    } ?> value="Đã giao">Đã giao</option>
+                            <option <?php if ($status == "Đã huỷ") {
                                         echo "selected";
-                                    } ?> value="Cancelled">Cancelled</option>
+                                    } ?> value="Đã huỷ">Đã huỷ</option>
                         </select>
                     </td>
                 </tr>

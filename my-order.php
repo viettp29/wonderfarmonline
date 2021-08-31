@@ -73,18 +73,19 @@ if (isset($_SESSION["user_id"]) == false) {
                                                                       <?php
                                                                       // Ordered, On Delivery, Delivered, Cancelled
 
-                                                                      if ($status == "Ordered") {
+                                                                      if ($status == "Đã đặt hàng") {
                                                                                 echo "<label>$status</label>";
-                                                                      } elseif ($status == "On Delivery") {
+                                                                      } elseif ($status == "Đang giao") {
                                                                                 echo "<label style='color: orange;'>$status</label>";
-                                                                      } elseif ($status == "Delivered") {
+                                                                      } elseif ($status == "Đã giao") {
                                                                                 echo "<label style='color: green;'>$status</label>";
-                                                                      } elseif ($status == "Cancelled") {
+                                                                      } elseif ($status == "Đã huỷ") {
                                                                                 echo "<label style='color: red;'>$status</label>";
                                                                       }
                                                                       ?>
                                                             </td>
 
+                                                            <td><?php echo $status; ?></td>
                                                             <td><?php echo $customer_name; ?></td>
                                                             <td><?php echo $customer_phone; ?></td>
                                                             <td><?php echo $customer_address; ?></td>

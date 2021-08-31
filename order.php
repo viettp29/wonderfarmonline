@@ -117,7 +117,7 @@ if (isset($_GET['drink_id'])) {
 
         $order_date = date("Y-m-d h:i:sa"); //Order DAte
 
-        $status = "Ordered";  // Ordered, On Delivery, Delivered, Cancelled
+        $status = "Đã đặt hàng";  // Ordered, On Delivery, Delivered, Cancelled
 
         $customer_name = $_POST['full-name'];
         $customer_phone = $_POST['phone'];
