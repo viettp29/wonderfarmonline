@@ -52,11 +52,9 @@ include('includesAdmin/header.php');
                 <tr>
                     <td>Sản phẩm: </td>
                     <td>
+                        // tạo khung hiển thị cho product
                         <select name="product">
-
                             <?php
-                            //Create PHP Code to display product from Database
-                            //1. CReate SQL to get all active product from database
                             $sql = "SELECT * FROM product WHERE active='Yes'";
 
                             //Executing qUery
@@ -72,11 +70,8 @@ include('includesAdmin/header.php');
                                     //get the details of product
                                     $productId = $row['productId'];
                                     $title = $row['title'];
-
                             ?>
-
                                     <option value="<?php echo $productId; ?>"><?php echo $title; ?></option>
-
                                 <?php
                                 }
                             } else {
@@ -85,9 +80,6 @@ include('includesAdmin/header.php');
                                 <option value="0">Không tìm thấy sản phẩm</option>
                             <?php
                             }
-
-
-                            //2. Display on Drpopdown
                             ?>
 
                         </select>
@@ -106,12 +98,8 @@ include('includesAdmin/header.php');
                         <input type="submit" name="submit" value="Thêm sản phẩm" class="btn-secondary">
                     </td>
                 </tr>
-
             </table>
-
         </form>
-
-
         <?php
 
         //CHeck whether the button is clicked or not
@@ -131,8 +119,7 @@ include('includesAdmin/header.php');
                 $active = "No"; //Setting Default Value
             }
 
-            //2. Upload the Image if selected
-            //Check whether the select image is clicked or not and upload the image only if the image is selected
+            //2. biến toàn cục chứa thông tin tệp tải lên(th này chứa tên của image được up)
             if (isset($_FILES['image']['name'])) {
                 //Get the details of the selected image
                 $imageName = $_FILES['image']['name'];
@@ -141,7 +128,7 @@ include('includesAdmin/header.php');
                 if ($imageName != "") {
                     // Image is SElected
                     //A. REnamge the Image
-                    //Get the extension of selected image (jpg, png, gif, etc.) "vijay-thapa.jpg" vijay-thapa jpg
+                    //lấy phần tử cuối cùng sau dấu .
                     $ext = end(explode('.', $imageName));
 
                     // Create New Name for Image
@@ -150,10 +137,10 @@ include('includesAdmin/header.php');
                     //B. Upload the Image
                     //Get the Src Path and DEstinaton path
 
-                    // Source path is the current location of the image
+                    // Tên tệp tạm thời của tệp được tải lên lưu trữ trên máy chủ.
                     $src = $_FILES['image']['tmp_name'];
 
-                    //Destination Path for the image to be uploaded
+                    //Đường dẫn đích cho hình ảnh được tải lên
                     $dst = "images/drink/" . $imageName;
 
                     //Finally Uppload the Drink image

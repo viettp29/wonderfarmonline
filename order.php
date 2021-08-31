@@ -45,13 +45,13 @@ if (isset($_GET['drink_id'])) {
 
 </section>
 <!-- drink sEARCH Section Ends Here -->
-<div class="container">
-
-    <h2 class="text-center text-white">Điền vào biểu mẫu này để xác nhận đơn đặt hàng của bạn.</h2>
-
-    <form action="" method="POST" class="order" style="background-color: #2ed573; padding-left:2%; padding-bottom:2%">
+<div class="container" style="background-image:url('images/latte1_2.jpg')">
+    <br>
+    <!-- <h5 class="text-center text-black">Điền vào biểu mẫu này để xác nhận đơn đặt hàng của bạn.</h5> -->
+    <br>
+    <form action="" method="POST" class="order" style=" padding-left:2%; padding-bottom:2%">
         <fieldset>
-            <legend>Đồ uống đã chọn</legend>
+            <legend style="color:#f32fa1">Đồ uống đã chọn</legend>
 
             <div class="food-menu-img">
                 <?php
@@ -70,16 +70,16 @@ if (isset($_GET['drink_id'])) {
 
             </div>
             <div class="food-menu-desc">
-                <h3><?php echo $title; ?></h3>
+                <h3 style="color:#f32fa1"><?php echo $title; ?></h3>
                 <input type="hidden" name="drink" value="<?php echo $title; ?>">
 
-                <p class="food-price">$<?php echo $price; ?></p>
+                <p class="food-price" style="color:#f32fa1">$<?php echo $price; ?></p>
                 <input type="hidden" name="price" value="<?php echo $price;
                                                             if (isset($_POST['quantity'])) {
                                                                 echo $price = $price * $_POST['quantity'];
                                                             } ?>">
 
-                <div class="order-label">Số lượng</div>
+                <div class="order-label" style="color:#f32fa1">Số lượng</div>
                 <input type="number" name="quantity" class="input-responsive" value="1">
 
 
@@ -88,17 +88,17 @@ if (isset($_GET['drink_id'])) {
         </fieldset>
 
         <fieldset>
-            <legend>Chi tiết giao hàng</legend>
-            <div class="order-label">Họ tên</div>
+            <legend style="color:#f32fa1">Chi tiết giao hàng</legend>
+            <div class="order-label" style="color:#f32fa1">Họ tên</div>
             <input type="text" name="full-name" placeholder="E.g. Vijay Thapa" class="input-responsive" required>
 
-            <div class="order-label">Số ĐT</div>
+            <div class="order-label" style="color:#f32fa1">Số ĐT</div>
             <input type="tel" name="phone" placeholder="E.g. 9843xxxxxx" class="input-responsive" required>
 
-            <div class="order-label">Địa chỉ</div>
+            <div class="order-label" style="color:#f32fa1">Địa chỉ</div>
             <textarea name="address" rows="10" placeholder="E.g. Street, City, Country" class="input-responsive" required></textarea>
 
-            <input type="submit" name="submit" value="Xác nhận đặt hàng" class="btn btn-primary">
+            <input type="submit" name="submit" value="Xác nhận đặt hàng" class="btn btn-danger">
         </fieldset>
 
     </form>

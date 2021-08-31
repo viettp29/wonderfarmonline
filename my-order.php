@@ -5,7 +5,11 @@ if (isset($_SESSION["user_id"]) == false) {
           $_SESSION['login'] = "<div class='error'>Bạn cần tạo tài khoản để xem được đơn hàng đã tạo</div>";
           header("Location: login.php");
 } else {
-          include('includes/headerUser.php');
+          if (isset($_SESSION['role_User']) && $_SESSION['role_User'] == 0) {
+                    include('includes/headerUser.php');
+          } else {
+                    include('includes/headerAdmin.php');
+          }
 }
 ?>
 

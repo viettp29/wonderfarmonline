@@ -29,6 +29,14 @@ if (isset($_GET['product_id'])) {
 }
 ?>
 <section class="food-search text-center">
+          <div class="container">
+
+                    <form action="drink-search.php" method="POST">
+                              <input type="search" name="search" placeholder="Tìm kiếm đồ uống..." required>
+                              <input type="submit" name="submit" value="Search" class="btn btn-danger">
+                    </form>
+
+          </div>
 </section>
 
 <!-- fOOD MEnu Section Starts Here -->

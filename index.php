@@ -40,10 +40,6 @@ include('includes/header.php');
 <!--End carousel slider-->
 <br>
 <?php
-if (isset($_SESSION['register'])) {
-          echo $_SESSION['register'];
-          unset($_SESSION['register']);
-}
 if (isset($_SESSION['login'])) {
           echo $_SESSION['login'];
           unset($_SESSION['login']);

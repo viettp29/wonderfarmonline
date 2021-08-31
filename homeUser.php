@@ -1,6 +1,10 @@
 <?php
 include('includes/connection.php');
-include('includes/headerUser.php');
+if (isset($_SESSION['role_User']) && $_SESSION['role_User'] == 0) {
+          include('includes/headerUser.php');
+} else {
+          include('includes/headerAdmin.php');
+}
 ?>
 <!-- start carousel slider-->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
