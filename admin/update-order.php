@@ -6,7 +6,7 @@ include('includesAdmin/header.php');
 ?>
 <div class="main-content">
     <div class="wrapper">
-        <h1>Update Order</h1>
+        <h1>Cập Nhập Đơn Hàng</h1>
         <br><br>
 
 
@@ -115,7 +115,7 @@ include('includesAdmin/header.php');
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="price" value="<?php echo $price; ?>">
 
-                        <input type="submit" name="submit" value="Update Order" class="btn-secondary">
+                        <input type="submit" name="submit" value="Cập nhập đơn hàng" class="btn-secondary">
                     </td>
                 </tr>
             </table>

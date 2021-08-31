@@ -104,11 +104,11 @@ if (isset($_POST['submit'])) {
                     $res2 = mysqli_query($conn, $sql2);
                     // nếu đổi thành công thì đẩy ra thông báo
                     if ($res2 == true) {
-                        $_SESSION['change-pwd'] = "<div class='success text text-center'>Đã thay đổi mật khẩu thành công. </div>";
+                        $_SESSION['change-pwds'] = "<div class='success text text-center'>Đã thay đổi mật khẩu thành công. </div>";
                         //Redirect the User
                         header('location: manage-user.php');
                     } else {
-                        $_SESSION['change-pwd'] = "<div class='error text text-center'>Đổi mật khẩu thất bại. </div>";
+                        $_SESSION['change-pwds'] = "<div class='error text text-center'>Đổi mật khẩu thất bại. </div>";
                         //Redirect the User
                         header('location: manage-user.php');
                     }

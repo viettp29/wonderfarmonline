@@ -24,11 +24,10 @@ include('includesAdmin/header.php');
             echo $_SESSION['update'];
             unset($_SESSION['update']);
         }
-        if (isset($_SESSION['change-pwd'])) {
-            echo $_SESSION['change-pwd'];
-            unset($_SESSION['change-pwd']);
+        if (isset($_SESSION['change-pwds'])) {
+            echo $_SESSION['change-pwds'];
+            unset($_SESSION['change-pwds']);
         }
-
         ?>
         <br><br><br>
 

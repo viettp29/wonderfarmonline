@@ -8,13 +8,7 @@ include('includesAdmin/header.php');
     <div class="wrapper">
         <h2>Quản Lý Đồ Uống</h2>
 
-        <br /><br />
-
-        <!-- Button to Add Admin -->
-        <a href="add-drink.php" class="btn-primary">Thêm Đồ Uống</a>
-
-        <br /><br /><br />
-
+        <br />
         <?php
         if (isset($_SESSION['add'])) {
             echo $_SESSION['add'];
@@ -42,6 +36,14 @@ include('includesAdmin/header.php');
         }
 
         ?>
+        <br />
+
+        <!-- Button to Add Admin -->
+        <a href="add-drink.php" class="btn-primary">Thêm Đồ Uống</a>
+
+        <br /><br /><br />
+
+
 
         <table class="tbl-full">
             <tr>
