@@ -10,10 +10,10 @@ if (isset($_SESSION['user_id']) == false) {
 <section class="food-search text-center">
           <div class="container">
 
-                    <form action="food-search.php" method="POST">
+                    <!-- <form action="drink-search.php" method="POST">
                               <input type="search" name="search" placeholder="Tìm kiếm đồ uống..." required>
                               <input type="submit" name="submit" value="Search" class="btn btn-danger">
-                    </form>
+                    </form> -->
 
           </div>
 </section>

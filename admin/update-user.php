@@ -32,7 +32,6 @@ include('includesAdmin/header.php');
                 // Get the Details
                 //echo "Admin Available";
                 $row = mysqli_fetch_assoc($res);
-                $email = $row['email'];
                 $fullName = $row['fullName'];
                 $role = $row['role'];
             } else {
@@ -47,12 +46,6 @@ include('includesAdmin/header.php');
         <form action="update-user.php" method="POST">
 
             <table class="tbl-30">
-                <tr>
-                    <td>Email: </td>
-                    <td>
-                        <input type="text" name="email" value="<?php echo $email; ?>">
-                    </td>
-                </tr>
                 <tr>
                     <td>Họ tên: </td>
                     <td>
@@ -87,36 +80,27 @@ if (isset($_POST['submit'])) {
     //echo "Button CLicked";
     //Get all the values from form to update
     $userId = $_POST['id'];
-    $email = $_POST['email'];
     $fullName = $_POST['fullName'];
     $role = $_POST['role'];
-    $checkEmail = "select * from users where email='$email'";
-    $resCheck = mysqli_query($conn, $checkEmail);
-    if ($resCheck == false) {
-        //Create a SQL Query to Update Admin
-        $sql2 = "UPDATE users SET
-    email = '$email',
+    //Create a SQL Query to Update Admin
+    $sql2 = "UPDATE users SET
     fullName = '$fullName',
     role = '$role'
     WHERE userId='$userId'
     ";
-        $res1 = mysqli_query($conn, $sql2);
+    $res1 = mysqli_query($conn, $sql2);
 
-        //Check whether the query executed successfully or not
-        if ($res1 == true) {
-            //Query Executed and Admin Updated
-            $_SESSION['update'] = "<div class='success text text-center'>Cập nhập người dùng thành công.</div>";
-            //Redirect to Manage Admin Page
-            header('location:' . SITEURL . 'admin/manage-user.php');
-        } else {
-            //Failed to Update Admin
-            $_SESSION['update'] = "<div class='error text text-center'>Không xoá được người dùng.</div>";
-            //Redirect to Manage Admin Page
-            header('location:' . SITEURL . 'admin/manage-user.php');
-        }
+    //Check whether the query executed successfully or not
+    if ($res1 == true) {
+        //Query Executed and Admin Updated
+        $_SESSION['update'] = "<div class='success text text-center'>Cập nhập người dùng thành công.</div>";
+        //Redirect to Manage Admin Page
+        header('location:' . SITEURL . 'admin/manage-user.php');
     } else {
-        $_SESSION["update"] = "<div class='error text text-center'>Email đã được sử dụng</div>";
-        header('location: manage-user.php');
+        //Failed to Update Admin
+        $_SESSION['update'] = "<div class='error text text-center'>Không xoá được người dùng.</div>";
+        //Redirect to Manage Admin Page
+        header('location:' . SITEURL . 'admin/manage-user.php');
     }
 }
 ?>
