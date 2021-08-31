@@ -38,18 +38,18 @@ if (isset($_POST["btn_submit"])) {
                                                                       if ($result == false) {
                                                                                 $_SESSION['register'] = "<div class='error text text-center'>Đăng ký tài khoản thất bại!.</div>";
                                                                       } else {
-                                                                                $_SESSION['register'] = "<div class='success text-center'>Đăng ký tài khoản thành công!.</div>";
-                                                                                header('Location: ' . SITEURL);
+                                                                                $_SESSION['dangky'] = "<div class='success text-center'>Bạn đã đăng ký tài khoản thành công!.</div>";
+                                                                                header('Location: login.php');
                                                                       }
                                                             }
                                                   } else {
                                                             $_SESSION['register'] = "<div class='error text text-center'>Mật khẩu của bạn không khớp.</div>";
                                                   }
+                                        } else {
+                                                  $_SESSION['register'] = "<div class='error text text-center'>Email này đã có người dùng. Vui lòng chọn Email khác</div>";
                                         }
-                                        // kiểm tra mật khẩu
-                                        $_SESSION['register'] = "<div class='error text text-center'>Email này đã có người dùng. Vui lòng chọn Email khác</div>";
                               } else {
-                                        $_SESSION['register'] = "<div class='error text text-center'>Email này không hợp lệ. Vui lòng chọn Email khác</div>";
+                                        $_SESSION['register'] = "<div class='error text text-center'>Email này không hợp lệ. Vui lòng nhập lại Email</div>";
                               }
                     } else {
                               $_SESSION['register'] = "<div class='error text text-center'>Tên đăng nhập đã được sử dụng!</div>";

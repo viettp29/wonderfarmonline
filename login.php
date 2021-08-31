@@ -60,6 +60,10 @@ if (isset($_POST["btn_submit"])) {
                                                             echo $_SESSION['login'];
                                                             unset($_SESSION['login']);
                                                   }
+                                                  if (isset($_SESSION['dangky'])) {
+                                                            echo $_SESSION['dangky'];
+                                                            unset($_SESSION['dangky']);
+                                                  }
                                                   ?>
                                                   <span class="circle"><i class="fa fa-check"></i></span>
                                                   <h5 class="mt-3">Đăng nhập</h5>

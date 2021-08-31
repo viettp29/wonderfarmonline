@@ -42,7 +42,7 @@
                     <div class="text-center">
                               <p><img src="./images/logo2.png" alt="" width="105" height="72"></p>
                               <p><span style="font-size: 14pt;"><strong>Công Ty Cổ Phần Thực Phẩm Quốc Tế</strong></span> <br>Lô 13 KCN Tam Phước, Phường Tam Phước, Thành phố Biên Hòa, Tỉnh Đồng Nai<br>Tel: +84 2513&nbsp;511 138<br>Fax: +84 2513 512 498<br>Email: contact@wonderfarmonline.com<br>Website: <a href="http://www.wonderfarmonline.com/">http://www.wonderfarmonline.com</a></p>
-                              <p><a href="https://www.facebook.com/kirinvietnam/"><img src="./images/fb.png" width="22" height="22" caption="false"></a>&nbsp; &nbsp;<a href="https://www.youtube.com/channel/UCTWx_OFK8wLy3ztFpiEA_Ig/featured"><img src="./images/youtube.png" width="26" height="26" caption="false"></a>&nbsp; &nbsp;<a href="https://www.instagram.com/kirin.vietnam/"><img src="./images/instagram.png" alt="" width="22" height="22"></a></p>
+                              <p><a href="https://www.facebook.com/groups/cse485he2020.cse.tlu.edu.vn"><img src="./images/fb.png" width="22" height="22" caption="false"></a>&nbsp; &nbsp;<a href="https://youtu.be/sA17Hi7lkvQ"><img src="./images/youtube.png" width="26" height="26" caption="false"></a>&nbsp; &nbsp;<a href="https://www.instagram.com/ruchikuri/"><img src="./images/instagram.png" alt="" width="22" height="22"></a></p>
                     </div>
           </div>
           <div class="foot">
@@ -52,7 +52,7 @@
                                         </div>
                               </div>
                     </div>
-                    <div class="container">Copyright © 2018 Công Ty Cổ Phần Thực Phẩm Quốc Tế. <span> All rights reserved. Thiết kế website: <a href="https://cnv.vn/" title="">CNV.vn</a></span></div>
+                    <div class="container">Copyright © 2018 Công Ty Cổ Phần Thực Phẩm Quốc Tế. <span> All rights reserved. Thiết kế website: <a href="https://www.facebook.com/theviet.3499/" title="">Việt-TLU</a></span></div>
           </div>
 </footer>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
